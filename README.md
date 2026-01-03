@@ -1,351 +1,370 @@
-# Foliox
+# DevTree
 
-Foliox is an AI-powered portfolio generator that automatically creates beautiful developer portfolios from GitHub profiles. It fetches your GitHub data, uses AI to generate professional summaries and highlights, and presents everything in a modern, responsive portfolio website.
+**Turn your GitHub into a stunning portfolio. Powered by AI, zero coding required.**
 
-## Features
+DevTree is an AI-powered portfolio generator that automatically transforms GitHub profiles into beautiful, professional developer portfolios. Simply enter a GitHub username and get a fully-featured, SEO-optimized portfolio website instantly.
 
-- **Automatic Portfolio Generation**: Enter any GitHub username and get a fully-featured portfolio instantly
-- **AI-Powered Content**: Uses Groq AI to generate professional summaries, highlights, and SEO-optimized descriptions
-- **GitHub Integration**: Fetches profile data, repositories, contribution graphs, and project statistics via GitHub GraphQL API
-- **Custom Share URLs**: Create memorable custom URLs for your portfolio (e.g., `yoursite.com/john-doe` instead of `yoursite.com/github-username`)
-- **Smart Caching**: Database-backed caching system for fast portfolio generation and reduced API calls
-- **SEO Optimized**: Dynamic metadata generation for better search engine visibility
-- **Responsive Design**: Works perfectly on all devices with dark mode support
-- **LinkedIn Integration**: Optional LinkedIn profile data fetching
-- **Live Project Screenshots**: Automatically captures and displays live screenshots of project homepages using Screenshot API
+![DevTree Banner](https://via.placeholder.com/1200x400/000000/FFFFFF?text=DevTree+-+GitHub+to+Portfolio+Builder)
 
-## How It Works
+## ✨ Features
 
-1. **User Input**: Visit the landing page and enter a GitHub username
-2. **Data Fetching**: The system fetches profile, repositories, and contribution data from GitHub
-3. **AI Processing**: Groq AI analyzes the profile and generates professional summaries and highlights
-4. **Portfolio Generation**: A complete portfolio page is generated with all sections
-5. **Custom URLs**: Users can create custom share URLs for easier sharing
+### 🚀 Core Features
 
-## Quick Start
+- **Instant Portfolio Generation** - Enter any GitHub username and get a complete portfolio in seconds
+- **AI-Powered Content** - Groq AI generates professional summaries, highlights, and descriptions
+- **Zero Configuration** - No coding, no setup, just enter a username
+- **Beautiful Themes** - Multiple pre-designed themes (Default, Vintage, Mono, Neobrutalism, T3 Chat)
+- **Two Layout Modes** - Classic timeline or modern Bento grid layout
+- **Fully Responsive** - Perfect on desktop, tablet, and mobile devices
+
+### 🎨 Design & Customization
+
+- **Dark Theme** - Modern black background with clean aesthetics
+- **Theme Switcher** - Toggle between light and dark modes
+- **Layout Toggle** - Switch between Classic and Bento layouts
+- **Custom URLs** - Create memorable URLs (e.g., `devtree.com/john-doe`)
+- **Share Features** - Easy sharing via Twitter, LinkedIn, WhatsApp
+
+### 📊 GitHub Integration
+
+- **Profile Data** - Name, bio, avatar, location, social links
+- **Repository Stats** - Stars, forks, languages, topics
+- **Contribution Graph** - Visual activity timeline
+- **Top Projects** - AI-selected featured repositories
+- **PR Analytics** - Pull requests grouped by organization
+- **Language Stats** - Top programming languages with percentages
+
+### 🤖 AI Capabilities
+
+- **Smart Summaries** - Professional "About Me" sections
+- **Project Highlights** - AI-generated project descriptions
+- **SEO Optimization** - Auto-generated meta tags and descriptions
+- **Skill Extraction** - Identifies key technologies and skills
+
+### 🔐 Authentication & Accounts
+
+- **GitHub OAuth** - Secure login with GitHub
+- **User Dashboard** - Manage your portfolio settings
+- **Custom URLs** - Register personalized portfolio links
+- **Profile Management** - Edit and customize your portfolio
+
+### ⚡ Performance
+
+- **Smart Caching** - Database-backed caching (1-hour TTL)
+- **Fast Loading** - Optimized API calls and data fetching
+- **CDN Ready** - Static assets optimized for CDN delivery
+- **SEO Optimized** - Dynamic metadata for search engines
+
+## 🎯 How It Works
+
+```mermaid
+graph LR
+    A[Enter GitHub Username] --> B[Fetch GitHub Data]
+    B --> C[AI Processing]
+    C --> D[Generate Portfolio]
+    D --> E[Beautiful Portfolio Page]
+    E --> F[Share & Customize]
+```
+
+1. **Enter Username** - Visit DevTree and enter any GitHub username
+2. **Data Fetching** - System fetches profile, repos, and contributions from GitHub
+3. **AI Analysis** - Groq AI analyzes the data and generates professional content
+4. **Portfolio Creation** - Complete portfolio page is generated with all sections
+5. **Customization** - Choose themes, layouts, and create custom URLs
+
+## 🚀 Quick Start
 
 ### Prerequisites
 
-- Node.js 20 or higher
-- PostgreSQL database
-- Groq API key (get one at [groq.com](https://groq.com))
-- GitHub personal access token (optional, for higher rate limits)
+- **Node.js** 20 or higher
+- **PostgreSQL** database
+- **Groq API Key** - Get one at [groq.com](https://groq.com)
+- **GitHub Token** (optional) - For higher rate limits
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository**
+
 ```bash
-git clone https://github.com/KartikLabhshetwar/foliox
-cd foliox
+git clone https://github.com/modamaan/DevTree
+cd DevTree
 ```
 
-2. Install dependencies:
+2. **Install dependencies**
+
 ```bash
 npm install
 ```
 
-3. Set up environment variables:
+3. **Set up environment variables**
+
 ```bash
 cp .env.example .env.local
 ```
 
-Edit `.env.local` with your configuration:
+Edit `.env.local`:
+
 ```env
 # Required
 GROQ_API_KEY=your_groq_api_key_here
 API_KEYS=key1,key2,key3
 DATABASE_URL=postgresql://user:password@host:port/database
 
-# Optional
-GITHUB_TOKEN=your_github_token
+# GitHub OAuth (Optional)
 GITHUB_CLIENT_ID=your_github_oauth_client_id
 GITHUB_CLIENT_SECRET=your_github_oauth_client_secret
+
+# Site Configuration
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_API_URL=http://localhost:3000
+
+# Better Auth
+BETTER_AUTH_SECRET=your_secret_key_here
+BETTER_AUTH_URL=http://localhost:3000
+
+# Optional
+GITHUB_TOKEN=your_github_token
 CACHE_ENABLED=true
 DEFAULT_CACHE_TTL=3600
-DEBUG=false
 NODE_ENV=development
 ```
 
-4. Set up the database:
+4. **Set up the database**
+
 ```bash
-npx prisma migrate dev
-npx prisma generate
+npm run db:push
+npm run db:generate
 ```
 
-5. Run the development server:
+5. **Run development server**
+
 ```bash
 npm run dev
 ```
 
-6. Open your browser:
+6. **Open your browser**
+
 ```
 http://localhost:3000
 ```
 
-Enter a GitHub username on the landing page to generate a portfolio.
+Enter a GitHub username to generate a portfolio!
 
-## Project Structure
+## 📁 Project Structure
 
 ```
-foliox/
+DevTree/
 ├── app/
 │   ├── (portfolio)/
-│   │   └── [username]/
-│   │       └── page.tsx          # Dynamic portfolio pages
+│   │   └── [username]/          # Dynamic portfolio pages
 │   ├── api/
-│   │   ├── custom-url/           # Custom URL endpoints
-│   │   │   ├── check/            # Check URL availability
-│   │   │   └── register/         # Register custom URL
-│   │   ├── user/
-│   │   │   └── [username]/
-│   │   │       ├── profile/      # GitHub profile with AI content
-│   │   │       ├── projects/    # Featured projects
-│   │   │       ├── about/       # About section
-│   │   │       └── contributions/ # Contribution graph data
-│   │   └── linkedin/
-│   │       └── [username]/       # LinkedIn profile data
-│   │   └── screenshot/
-│   │       └── route.ts          # Screenshot API endpoint
-│   ├── layout.tsx                 # Root layout
-│   └── page.tsx                   # Landing page
+│   │   ├── auth/                # Authentication endpoints
+│   │   ├── custom-url/          # Custom URL management
+│   │   ├── github/              # GitHub API integration
+│   │   ├── linkedin/            # LinkedIn integration (WIP)
+│   │   ├── screenshot/          # Screenshot generation
+│   │   └── user/                # User data endpoints
+│   ├── dashboard/               # User dashboard
+│   ├── page.tsx                 # Landing page
+│   ├── layout.tsx               # Root layout
+│   └── globals.css              # Global styles
 ├── components/
-│   ├── portfolio/                 # Portfolio-specific components
-│   │   ├── hero-section.tsx
-│   │   ├── share-button.tsx      # Share with custom URL creation
-│   │   ├── projects-section.tsx
-│   │   ├── project-image.tsx     # Project screenshot component with fallback
-│   │   └── ...
-│   └── ui/                        # Reusable UI components (Shadcn)
+│   ├── auth/                    # Authentication components
+│   ├── portfolio/               # Portfolio sections
+│   │   ├── introduction-section.tsx
+│   │   ├── capabilities-section.tsx
+│   │   ├── work-gallery.tsx
+│   │   ├── proof-of-work-section.tsx
+│   │   ├── prs-by-org-section.tsx
+│   │   ├── classic-layout.tsx
+│   │   └── bento-layout.tsx
+│   └── ui/                      # Reusable UI components
 ├── lib/
-│   ├── config/
-│   │   └── settings.ts            # Environment configuration
 │   ├── modules/
-│   │   ├── github/                # GitHub API integration
-│   │   │   ├── fetcher.ts        # Profile and data fetching
-│   │   │   ├── projects.ts       # Project ranking algorithm
-│   │   │   └── contributions.ts  # Contribution graph
-│   │   ├── ai/
-│   │   │   └── generator.ts      # AI content generation
-│   │   └── linkedin/
-│   │       └── fetcher.ts        # LinkedIn integration
-│   └── utils/
-│       ├── cache.ts              # Database-backed caching
-│       ├── custom-url.ts         # Custom URL utilities
-│       ├── user.ts               # Username validation
-│       └── api-client.ts         # API client wrapper
-├── prisma/
-│   └── schema.prisma              # Database schema
-└── types/                         # TypeScript type definitions
+│   │   ├── github/              # GitHub API client
+│   │   ├── groq/                # AI processing
+│   │   └── linkedin/            # LinkedIn integration
+│   ├── utils/                   # Utility functions
+│   └── config/                  # Configuration
+├── types/                       # TypeScript types
+└── prisma/                      # Database schema
 ```
 
-## API Endpoints
+## 🎨 Themes & Layouts
 
-### Portfolio Data
+### Available Themes
 
-- `GET /api/user/[username]/profile` - Fetch GitHub profile with AI-generated bio and SEO metadata
-- `GET /api/user/[username]/projects` - Get featured projects and language statistics
-- `GET /api/user/[username]/about` - Get AI-generated about section
-- `GET /api/user/[username]/contributions` - Get contribution graph data
-- `GET /api/user/[username]/prs-by-org` - Get pull requests grouped by organization
+- **Default** - Clean, modern design
+- **Vintage** - Classic, retro aesthetic
+- **Mono** - Minimalist monochrome
+- **Neobrutalism** - Bold, brutalist design
+- **T3 Chat** - Tech-inspired theme
 
-### Custom URLs
+### Layout Options
 
-- `POST /api/custom-url/check` - Check if a custom URL slug is available
-- `POST /api/custom-url/register` - Register a custom URL for a GitHub username
+- **Classic** - Traditional vertical timeline
+- **Bento** - Modern grid-based layout
 
-### LinkedIn
+## 🔧 API Endpoints
 
-- `GET /api/linkedin/[username]` - Fetch LinkedIn profile data
+### Public Endpoints
 
-### Screenshot
-
-- `GET /api/screenshot` - Capture screenshots of websites for project previews
-  - Query parameters:
-    - `url` (required): The URL to capture
-    - `width` (optional): Viewport width in pixels (default: 1280)
-    - `height` (optional): Viewport height in pixels (default: 800)
-    - `format` (optional): Output format - png, jpeg, or pdf (default: png)
-    - `quality` (optional): Image quality for JPEG, 1-100 (default: 80)
-    - `fullPage` (optional): Capture full page height (default: false)
-
-All API endpoints require an `X-API-Key` header (except when `DEBUG=true`). The API key must match one of the keys in the `API_KEYS` environment variable.
-
-## Custom Share URLs
-
-Users can create custom URLs for their portfolios instead of using their GitHub username. For example, instead of `yoursite.com/github-username`, they can use `yoursite.com/john-doe`.
-
-### How It Works
-
-1. User clicks the Share button on their portfolio
-2. They can enter a custom slug (e.g., "john-doe")
-3. The system validates the slug format and checks availability
-4. If available, the user can register it
-5. The custom URL is stored in the database and mapped to their GitHub username
-6. Visiting the custom URL resolves to the GitHub username and displays the portfolio
-
-### Validation Rules
-
-- 3-40 characters
-- Lowercase letters, numbers, and hyphens only
-- Cannot start or end with a hyphen
-- Reserved words are blocked (api, admin, www, etc.)
-- Must be unique
-
-## Database Schema
-
-The application uses PostgreSQL with Prisma ORM. The main models are:
-
-- **Cache**: Stores cached API responses with expiration times
-- **CustomUrl**: Maps custom URL slugs to GitHub usernames
-
-Run migrations to set up the database:
-```bash
-npx prisma migrate dev
+```
+GET  /                           # Landing page
+GET  /[username]                 # Portfolio page
+GET  /api/github/stars           # GitHub stars count
 ```
 
-## Environment Variables
+### Authenticated Endpoints
 
-### Required
-
-- `GROQ_API_KEY`: Your Groq API key for AI generation
-- `API_KEYS`: Comma-separated list of API keys for authentication
-- `DATABASE_URL`: PostgreSQL connection string
-
-### Optional
-
-- `GITHUB_TOKEN`: GitHub personal access token (increases rate limits and enables private repository access)
-- `CACHE_ENABLED`: Enable/disable caching (default: true)
-- `DEFAULT_CACHE_TTL`: Cache time-to-live in seconds (default: 3600)
-- `DEBUG`: Bypass API key authentication (default: false)
-- `NODE_ENV`: Environment mode (development/production/test)
-- `SCREENSHOT_API_URL`: URL of the Screenshot API service (e.g., `https://your-worker.workers.dev`) - Required for live project screenshots
-
-## Tech Stack
-
-- **Framework**: Next.js 16 with App Router
-- **Language**: TypeScript
-- **UI**: Tailwind CSS + Shadcn/ui components
-- **AI**: Vercel AI SDK with Groq provider (Llama 3.1 8B)
-- **Database**: PostgreSQL with Prisma ORM
-- **API**: GitHub GraphQL API
-- **Caching**: Database-backed caching with Prisma
-- **Authentication**: API key-based middleware
-
-## Caching Strategy
-
-The application uses a database-backed caching system for most endpoints:
-
-- Cache entries are stored in PostgreSQL with expiration times
-- Default TTL is 3600 seconds (1 hour)
-- Automatic cleanup of expired entries (1% chance on each write)
-- Tag-based cache organization for easy invalidation
-- Cache is checked before making external API calls
-- Most portfolio endpoints use caching to reduce API calls and improve performance
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=KartikLabhshetwar/foliox&type=Date)](https://star-history.com/#KartikLabhshetwar/foliox&Date)
-
-
-### Other Platforms
-
-The application can be deployed to any platform that supports Next.js:
-
-1. Set up a PostgreSQL database
-2. Configure all environment variables
-3. Run `npm run build` to build the application
-4. Run `npx prisma migrate deploy` to apply migrations
-5. Start the application with `npm start`
-
-## Development
-
-### Running Locally
-
-```bash
-npm run dev
+```
+GET  /dashboard                  # User dashboard
+POST /api/custom-url/register    # Register custom URL
+GET  /api/custom-url/check       # Check URL availability
 ```
 
-### Building for Production
+### User Data Endpoints
 
-```bash
-npm run build
-npm start
+```
+GET  /api/user/[username]/profile        # User profile
+GET  /api/user/[username]/about          # About section
+GET  /api/user/[username]/projects       # Projects
+GET  /api/user/[username]/contributions  # Contribution graph
+GET  /api/user/[username]/prs-by-org     # PRs by organization
 ```
 
-### Database Migrations
+## 🗄️ Database Schema
 
-Create a new migration:
-```bash
-npx prisma migrate dev --name migration_name
+### Key Tables
+
+- **users** - User accounts and authentication
+- **profiles** - Cached GitHub profile data
+- **custom_urls** - Custom URL mappings
+- **sessions** - User sessions
+- **accounts** - OAuth accounts
+
+## 🤖 AI Integration
+
+DevTree uses **Groq AI** with the `llama-3.3-70b-versatile` model for:
+
+- **Profile Summaries** - Professional "About Me" sections
+- **Project Descriptions** - Engaging project highlights
+- **SEO Content** - Meta descriptions and keywords
+- **Skill Analysis** - Technology stack identification
+
+## 🎯 Features Roadmap
+
+### ✅ Completed
+
+- [x] GitHub profile integration
+- [x] AI-powered content generation
+- [x] Multiple themes and layouts
+- [x] Custom URL support
+- [x] Dark theme
+- [x] Responsive design
+- [x] Share functionality
+- [x] PR analytics
+- [x] Contribution graphs
+
+### 🚧 In Progress
+
+- [ ] LinkedIn OAuth integration
+- [ ] Experience & education sections
+- [ ] Skills showcase
+
+### 📋 Planned
+
+- [ ] Blog integration
+- [ ] Project screenshots
+- [ ] Analytics dashboard
+- [ ] Export to PDF
+- [ ] Custom domains
+- [ ] Team portfolios
+- [ ] Portfolio templates
+- [ ] Video introductions
+
+## 🛠️ Tech Stack
+
+- **Framework** - Next.js 15 (App Router)
+- **Language** - TypeScript
+- **Styling** - Tailwind CSS
+- **Database** - PostgreSQL + Drizzle ORM
+- **Authentication** - Better Auth
+- **AI** - Groq (Llama 3.3)
+- **APIs** - GitHub GraphQL API
+- **Deployment** - Vercel (recommended)
+
+## 🌐 Environment Variables
+
+| Variable               | Required | Description                       |
+| ---------------------- | -------- | --------------------------------- |
+| `GROQ_API_KEY`         | ✅       | Groq AI API key                   |
+| `API_KEYS`             | ✅       | Comma-separated internal API keys |
+| `DATABASE_URL`         | ✅       | PostgreSQL connection string      |
+| `GITHUB_CLIENT_ID`     | ⚠️       | GitHub OAuth client ID            |
+| `GITHUB_CLIENT_SECRET` | ⚠️       | GitHub OAuth client secret        |
+| `BETTER_AUTH_SECRET`   | ✅       | Secret for auth encryption        |
+| `BETTER_AUTH_URL`      | ✅       | Base URL for auth callbacks       |
+| `NEXT_PUBLIC_SITE_URL` | ✅       | Public site URL                   |
+| `GITHUB_TOKEN`         | ❌       | Personal access token (optional)  |
+| `CACHE_ENABLED`        | ❌       | Enable/disable caching            |
+| `DEFAULT_CACHE_TTL`    | ❌       | Cache TTL in seconds              |
+
+## 📝 Usage Examples
+
+### Generate a Portfolio
+
+```
+https://devtree.com/octocat
 ```
 
-Apply migrations in production:
-```bash
-npx prisma migrate deploy
+### Custom URL
+
+```
+https://devtree.com/john-doe
 ```
 
-### Linting
+### With Layout
 
-```bash
-npm run lint
+```
+https://devtree.com/octocat?layout=bento
 ```
 
-## Troubleshooting
+## 🤝 Contributing
 
-### Environment Validation Failed
+Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
-Ensure all required environment variables are set in `.env.local` and that `GROQ_API_KEY`, `API_KEYS`, and `DATABASE_URL` are not empty.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-### Invalid API Key
+## 📄 License
 
-Verify that the `X-API-Key` header matches one of the keys in the `API_KEYS` environment variable. Set `DEBUG=true` to bypass authentication during development.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### GitHub User Not Found
+## 🙏 Acknowledgments
 
-Check the username spelling and ensure the GitHub user exists and is public. If you're rate-limited, add a `GITHUB_TOKEN` to increase your rate limit.
+- **Groq** - For the amazing AI API
+- **GitHub** - For the comprehensive GraphQL API
+- **Vercel** - For the excellent hosting platform
+- **Next.js** - For the powerful React framework
 
-### Private Repository Access with GitHub OAuth
+## 📧 Support
 
-To enable users to access their private repositories:
+- **Issues** - [GitHub Issues](https://github.com/modamaan/DevTree/issues)
+- **Discussions** - [GitHub Discussions](https://github.com/modamaan/DevTree/discussions)
+- **Email** - support@devtree.com
 
-1. **Create a GitHub OAuth App**:
-   - Go to GitHub Settings → Developer settings → OAuth Apps
-   - Click "New OAuth App"
-   - Set Application name: "Foliox" (or your app name)
-   - Set Homepage URL: `http://localhost:3000` (or your production URL)
-   - Set Authorization callback URL: `http://localhost:3000/api/auth/callback/github` (or your production callback URL)
-   - Click "Register application"
-   - Copy the **Client ID** and generate a **Client Secret**
+## ☕ Support the Project
 
-2. **Set OAuth credentials in your environment**:
-   ```env
-   GITHUB_CLIENT_ID=your_client_id_here
-   GITHUB_CLIENT_SECRET=your_client_secret_here
-   NEXT_PUBLIC_SITE_URL=http://localhost:3000
-   ```
+If you find DevTree useful, consider supporting the project:
 
-3. **How it works**:
-   - Users can click "Sign in with GitHub" on the landing page
-   - After authentication, their GitHub access token is securely stored
-   - When viewing their own portfolio, private repositories are automatically included
-   - The system uses the user's token to fetch both public and private repos
-   - Other users' portfolios will only show public repositories (as expected)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Support-yellow?style=for-the-badge&logo=buy-me-a-coffee)](https://www.buymeacoffee.com/modamaan)
 
-4. **Server-side token (optional)**:
-   - You can still set `GITHUB_TOKEN` for server-side operations
-   - This is used as a fallback when no user is authenticated
-   - Useful for public portfolio generation without user login
+---
 
-### Database Connection Issues
+**Built with ❤️ by [Mohamed Amaan](https://github.com/modamaan)**
 
-Verify your `DATABASE_URL` is correct and that the database is accessible. Ensure migrations have been run with `npx prisma migrate dev`.
-
-## Documentation
-
-- [IMPLEMENTATION.md](./IMPLEMENTATION.md) - Detailed architecture and implementation details
-
-## Contributing
-
-Contributions are welcome. Please feel free to submit a Pull Request.
-
+**DevTree** - Turn your GitHub into a stunning portfolio
