@@ -13,10 +13,10 @@ export class APIClient {
 
   constructor(baseUrl?: string, apiKey?: string) {
     const envUrl = process.env.NEXT_PUBLIC_API_URL
-    const defaultUrl = typeof window === "undefined" 
+    const defaultUrl = typeof window === "undefined"
       ? process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"
       : ""
-    
+
     this.baseUrl = baseUrl || envUrl || defaultUrl
     this.apiKey = apiKey || process.env.API_KEYS?.split(",")[0] || ""
   }

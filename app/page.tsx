@@ -263,7 +263,7 @@ export default function LandingPage() {
               <FaStar className="absolute h-2 w-2 text-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 top-1/2 -right-2 animate-sparkle-float" style={{ animationDelay: '0.6s' }} />
             </Link>
             <Link
-              href="https://www.linkedin.com/in/kartiklabhshetwar/"
+              href="https://www.linkedin.com/in/mohamedamaan319/"
               target="_blank"
               rel="noreferrer"
               className="md:hidden flex items-center justify-center gap-1 outline-none transition-colors border border-transparent text-white px-2.5 py-1.5 rounded-full bg-[#0077B5] hover:bg-[#006399] active:bg-[#005582] text-xs tracking-normal whitespace-nowrap cursor-pointer relative group overflow-visible"

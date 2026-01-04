@@ -17,7 +17,7 @@ interface PageProps {
 async function fetchPortfolioData(username: string): Promise<PortfolioData | null> {
   const apiKey = process.env.API_KEYS?.split(",")[0] || ""
   const client = createAPIClient(apiKey)
-  
+
   return client.getFullPortfolio(username, { revalidate: 3600 })
 }
 
@@ -47,7 +47,7 @@ async function resolveUsername(rawUsername: string): Promise<string | null> {
   if (customGithubUsername) {
     return customGithubUsername
   }
-  
+
   try {
     return verifyUsername(rawUsername)
   } catch {
@@ -58,14 +58,14 @@ async function resolveUsername(rawUsername: string): Promise<string | null> {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { username: rawUsername } = await params
   const username = await resolveUsername(rawUsername)
-  
+
   if (!username) {
     return {
       title: "Portfolio Not Found",
       description: "The requested portfolio could not be found.",
     }
   }
-  
+
   const data = await fetchPortfolioData(username)
 
   if (!data) {
@@ -97,11 +97,11 @@ export default async function PortfolioPage({ params, searchParams }: PageProps)
   const { username: rawUsername } = await params
   const { layout } = await searchParams
   const username = await resolveUsername(rawUsername)
-  
+
   if (!username) {
     notFound()
   }
-  
+
   const [data, prsByOrg] = await Promise.all([
     fetchPortfolioData(username),
     fetchPRsByOrg(username),
@@ -117,7 +117,7 @@ export default async function PortfolioPage({ params, searchParams }: PageProps)
   return (
     <>
       <PortfolioTracker username={username} wasCached={wasCached} />
-      
+
       {isBento ? (
         <BentoLayout
           profile={data.profile}
