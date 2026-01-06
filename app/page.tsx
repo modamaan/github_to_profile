@@ -250,7 +250,7 @@ export default function LandingPage() {
           <div className="flex items-center gap-2">
             <UserMenu />
             <Link
-              href="https://www.linkedin.com/in/kartiklabhshetwar/"
+              href="https://www.linkedin.com/in/mohamedamaan319/"
               target="_blank"
               rel="noreferrer"
               className="hidden md:flex items-center justify-center gap-1.5 outline-none transition-colors border border-transparent text-white px-2.5 py-1.5 rounded-full bg-[#0077B5] hover:bg-[#006399] active:bg-[#005582] text-xs md:text-sm lg:px-4 lg:py-2.5 lg:text-base tracking-normal whitespace-nowrap cursor-pointer relative group overflow-visible"
