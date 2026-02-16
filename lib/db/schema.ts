@@ -1,4 +1,4 @@
-import { pgTable, text, timestamp, boolean, index } from 'drizzle-orm/pg-core';
+import { pgTable, text, timestamp, boolean, integer, index } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
 // Cache table
@@ -108,10 +108,76 @@ export const verification = pgTable(
     })
 );
 
+// Gumroad Products table
+export const gumroadProduct = pgTable(
+    'gumroad_products',
+    {
+        id: text('id').primaryKey(),
+        userId: text('userId')
+            .notNull()
+            .references(() => user.id, { onDelete: 'cascade' }),
+
+        // Gumroad data
+        gumroadProductId: text('gumroadProductId').notNull(),
+        name: text('name').notNull(),
+        description: text('description'),
+        price: integer('price'), // in cents
+        currency: text('currency').default('USD'),
+        shortUrl: text('shortUrl').notNull(),
+        thumbnailUrl: text('thumbnailUrl'),
+
+        // Display settings
+        isVisible: boolean('isVisible').default(true),
+        displayOrder: integer('displayOrder').default(0),
+
+        // Stats (cached from Gumroad)
+        salesCount: integer('salesCount').default(0),
+        totalRevenue: integer('totalRevenue').default(0),
+        lastSyncedAt: timestamp('lastSyncedAt', { mode: 'date' }),
+
+        createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
+        updatedAt: timestamp('updatedAt', { mode: 'date' }).notNull().defaultNow(),
+    },
+    (table) => ({
+        userIdIdx: index('gumroad_products_userId_idx').on(table.userId),
+        gumroadProductIdIdx: index('gumroad_products_gumroadProductId_idx').on(table.gumroadProductId),
+    })
+);
+
+// User Settings table
+export const userSettings = pgTable(
+    'user_settings',
+    {
+        id: text('id').primaryKey(),
+        userId: text('userId')
+            .notNull()
+            .unique()
+            .references(() => user.id, { onDelete: 'cascade' }),
+
+        // Gumroad integration
+        gumroadApiKey: text('gumroadApiKey'), // Should be encrypted in production
+        gumroadUsername: text('gumroadUsername'),
+        showProductsSection: boolean('showProductsSection').default(true),
+        showSalesCount: boolean('showSalesCount').default(false),
+        showRevenue: boolean('showRevenue').default(false),
+
+        createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
+        updatedAt: timestamp('updatedAt', { mode: 'date' }).notNull().defaultNow(),
+    },
+    (table) => ({
+        userIdIdx: index('user_settings_userId_idx').on(table.userId),
+    })
+);
+
 // Relations
-export const userRelations = relations(user, ({ many }) => ({
+export const userRelations = relations(user, ({ many, one }) => ({
     sessions: many(session),
     accounts: many(account),
+    gumroadProducts: many(gumroadProduct),
+    settings: one(userSettings, {
+        fields: [user.id],
+        references: [userSettings.userId],
+    }),
 }));
 
 export const sessionRelations = relations(session, ({ one }) => ({
@@ -124,6 +190,20 @@ export const sessionRelations = relations(session, ({ one }) => ({
 export const accountRelations = relations(account, ({ one }) => ({
     user: one(user, {
         fields: [account.userId],
+        references: [user.id],
+    }),
+}));
+
+export const gumroadProductRelations = relations(gumroadProduct, ({ one }) => ({
+    user: one(user, {
+        fields: [gumroadProduct.userId],
+        references: [user.id],
+    }),
+}));
+
+export const userSettingsRelations = relations(userSettings, ({ one }) => ({
+    user: one(user, {
+        fields: [userSettings.userId],
         references: [user.id],
     }),
 }));
@@ -146,3 +226,9 @@ export type NewAccount = typeof account.$inferInsert;
 
 export type Verification = typeof verification.$inferSelect;
 export type NewVerification = typeof verification.$inferInsert;
+
+export type GumroadProduct = typeof gumroadProduct.$inferSelect;
+export type NewGumroadProduct = typeof gumroadProduct.$inferInsert;
+
+export type UserSettings = typeof userSettings.$inferSelect;
+export type NewUserSettings = typeof userSettings.$inferInsert;

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
+import { AdSenseScript } from "@/components/adsense";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,6 +55,7 @@ export default function RootLayout({
       <head>
         <meta name="google-site-verification" content="01RSOFnpsCxoymkIv5grg4fWEXlEAooR046blv6h0bg" />
         <script defer src="https://cloud.umami.is/script.js" data-website-id="e8b67cef-c928-4c15-9aa3-e2d24f71ba1b"></script>
+        <AdSenseScript />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} antialiased`}

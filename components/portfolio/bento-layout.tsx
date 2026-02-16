@@ -32,7 +32,7 @@ export function BentoLayout({
   return (
     <div className="min-h-screen bg-background p-4 sm:p-6 lg:p-8">
       <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-min">
-        
+
         {/* Profile / Intro - Large Card */}
         <Card className="col-span-1 md:col-span-2 lg:col-span-2 row-span-2 p-6 flex flex-col justify-center bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-colors shadow-lg hover:shadow-xl dark:shadow-none dark:hover:shadow-primary/10">
           <IntroductionSection profile={profile} />
@@ -56,7 +56,7 @@ export function BentoLayout({
 
         {/* Projects - Grid within Grid */}
         <div className="col-span-1 md:col-span-3 lg:col-span-4">
-           <WorkGallery projects={projects} />
+          <WorkGallery projects={projects} />
         </div>
 
         {/* Top Languages - Below Featured Work (only when work experience exists) */}
@@ -73,7 +73,7 @@ export function BentoLayout({
 
         {/* PRs */}
         <Card className="col-span-1 md:col-span-1 lg:col-span-2 p-6 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-colors shadow-lg hover:shadow-xl dark:shadow-none dark:hover:shadow-primary/10">
-           <PRsByOrgSection prsByOrg={prsByOrg} username={username} />
+          <PRsByOrgSection prsByOrg={prsByOrg} username={username} />
         </Card>
 
         {/* Contact - Footer Card */}

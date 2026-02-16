@@ -248,6 +248,7 @@ export default function LandingPage() {
           </Link>
 
           <div className="flex items-center gap-2">
+            <GitHubLoginButton />
             <UserMenu />
             <Link
               href="https://www.linkedin.com/in/mohamedamaan319/"
@@ -662,6 +663,15 @@ export default function LandingPage() {
           </div>
 
           <div className="mt-12 pt-8 border-t border-zinc-800 text-center text-sm text-zinc-500">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-4">
+              <Link href="/privacy" className="hover:text-zinc-300 transition-colors">
+                Privacy Policy
+              </Link>
+              <span className="hidden md:inline">•</span>
+              <Link href="/terms" className="hover:text-zinc-300 transition-colors">
+                Terms of Service
+              </Link>
+            </div>
             <p>© 2026 DevTree. Built with ❤️ for developers.</p>
           </div>
         </div>

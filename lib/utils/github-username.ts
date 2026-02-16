@@ -1,5 +1,4 @@
 import { auth } from "@/lib/auth";
-import { prisma } from "@/lib/utils/db";
 import { getUserGitHubToken } from "./github-token";
 
 export async function getUserGitHubUsername(userId?: string): Promise<string | null> {

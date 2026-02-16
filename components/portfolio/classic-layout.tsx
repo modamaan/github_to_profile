@@ -35,11 +35,11 @@ export function ClassicLayout({
 
       <main className="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
         <IntroductionSection profile={profile} />
-        
+
         <WorkExperienceSection profile={profile} />
-        
+
         <CapabilitiesSection about={about} />
-        
+
         <WorkGallery projects={projects} />
 
         <section className="relative w-full py-6 sm:py-8 md:py-12">

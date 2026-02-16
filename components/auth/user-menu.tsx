@@ -4,7 +4,8 @@ import { useState } from "react";
 import { useSession, signOut } from "@/lib/auth-client";
 import { Popover, PopoverContent } from "@/components/ui/popover";
 import Image from "next/image";
-import { FaChevronDown, FaSignOutAlt } from "react-icons/fa";
+import Link from "next/link";
+import { FaChevronDown, FaSignOutAlt, FaStore } from "react-icons/fa";
 
 export function UserMenu() {
   const { data: session } = useSession();
@@ -20,8 +21,8 @@ export function UserMenu() {
   };
 
   return (
-    <Popover 
-      open={isOpen} 
+    <Popover
+      open={isOpen}
       onOpenChange={setIsOpen}
       align="right"
       trigger={
@@ -67,6 +68,14 @@ export function UserMenu() {
           </div>
         </div>
         <div className="p-2">
+          <Link
+            href="/dashboard/products"
+            onClick={() => setIsOpen(false)}
+            className="w-full flex items-center gap-2 px-3 py-2 text-sm text-foreground hover:bg-accent rounded-md transition-colors"
+          >
+            <FaStore className="h-4 w-4 text-cyan-400" />
+            <span>Products</span>
+          </Link>
           <button
             onClick={handleLogout}
             className="w-full flex items-center gap-2 px-3 py-2 text-sm text-destructive hover:bg-destructive/10 rounded-md transition-colors text-left"
