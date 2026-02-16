@@ -113,105 +113,13 @@ export default function PrivacyPolicyPage() {
                     </section>
 
                     <section className="mb-8">
-                        <h2 className="text-2xl font-semibold mb-4">6. Data Storage and Security</h2>
-                        <p className="mb-4">
-                            We store your data securely using industry-standard practices:
-                        </p>
-                        <ul className="list-disc pl-6 mb-4 space-y-2">
-                            <li>Data is stored in PostgreSQL databases hosted on secure servers</li>
-                            <li>We use encryption for data transmission (HTTPS/SSL)</li>
-                            <li>Access to user data is restricted to authorized personnel only</li>
-                            <li>We implement regular security updates and monitoring</li>
-                        </ul>
-                        <p className="mb-4">
-                            However, no method of transmission over the Internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your information, we cannot guarantee its absolute security.
-                        </p>
-                    </section>
-
-                    <section className="mb-8">
-                        <h2 className="text-2xl font-semibold mb-4">7. Data Retention</h2>
-                        <p className="mb-4">
-                            We retain your information for as long as necessary to provide our services and comply with legal obligations:
-                        </p>
-                        <ul className="list-disc pl-6 mb-4 space-y-2">
-                            <li><strong>Cached Data:</strong> Automatically deleted after 1 hour</li>
-                            <li><strong>Account Data:</strong> Retained until you delete your account</li>
-                            <li><strong>Custom URLs:</strong> Retained until you remove them</li>
-                        </ul>
-                    </section>
-
-                    <section className="mb-8">
-                        <h2 className="text-2xl font-semibold mb-4">8. Your Rights</h2>
-                        <p className="mb-4">You have the following rights regarding your personal information:</p>
-                        <ul className="list-disc pl-6 mb-4 space-y-2">
-                            <li><strong>Access:</strong> Request a copy of your personal data</li>
-                            <li><strong>Correction:</strong> Request correction of inaccurate data</li>
-                            <li><strong>Deletion:</strong> Request deletion of your account and data</li>
-                            <li><strong>Opt-out:</strong> Opt out of marketing communications</li>
-                            <li><strong>Data Portability:</strong> Request your data in a portable format</li>
-                        </ul>
-                        <p className="mb-4">
-                            To exercise these rights, please contact us at the email address provided below.
-                        </p>
-                    </section>
-
-                    <section className="mb-8">
-                        <h2 className="text-2xl font-semibold mb-4">9. Children's Privacy</h2>
-                        <p className="mb-4">
-                            Our service is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us.
-                        </p>
-                    </section>
-
-                    <section className="mb-8">
-                        <h2 className="text-2xl font-semibold mb-4">10. International Data Transfers</h2>
-                        <p className="mb-4">
-                            Your information may be transferred to and maintained on servers located outside of your state, province, country, or other governmental jurisdiction where data protection laws may differ. By using our service, you consent to such transfers.
-                        </p>
-                    </section>
-
-                    <section className="mb-8">
-                        <h2 className="text-2xl font-semibold mb-4">11. Changes to This Privacy Policy</h2>
-                        <p className="mb-4">
-                            We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date. You are advised to review this Privacy Policy periodically for any changes.
-                        </p>
-                    </section>
-
-                    <section className="mb-8">
-                        <h2 className="text-2xl font-semibold mb-4">12. Contact Us</h2>
+                        <h2 className="text-2xl font-semibold mb-4">6. Contact Us</h2>
                         <p className="mb-4">
                             If you have any questions about this Privacy Policy, please contact us:
                         </p>
                         <ul className="list-none mb-4 space-y-2">
                             <li><strong>Email:</strong> support@devtree.com</li>
                             <li><strong>Website:</strong> <a href="https://devtree.site" className="text-primary hover:underline">https://devtree.site</a></li>
-                        </ul>
-                    </section>
-
-                    <section className="mb-8">
-                        <h2 className="text-2xl font-semibold mb-4">13. GDPR Compliance (EU Users)</h2>
-                        <p className="mb-4">
-                            If you are located in the European Economic Area (EEA), you have certain data protection rights under GDPR:
-                        </p>
-                        <ul className="list-disc pl-6 mb-4 space-y-2">
-                            <li>Right to access, update, or delete your information</li>
-                            <li>Right to rectification and restriction of processing</li>
-                            <li>Right to data portability</li>
-                            <li>Right to withdraw consent</li>
-                            <li>Right to lodge a complaint with a supervisory authority</li>
-                        </ul>
-                    </section>
-
-                    <section className="mb-8">
-                        <h2 className="text-2xl font-semibold mb-4">14. California Privacy Rights (CCPA)</h2>
-                        <p className="mb-4">
-                            If you are a California resident, you have specific rights under the California Consumer Privacy Act (CCPA):
-                        </p>
-                        <ul className="list-disc pl-6 mb-4 space-y-2">
-                            <li>Right to know what personal information is collected</li>
-                            <li>Right to know if personal information is sold or disclosed</li>
-                            <li>Right to say no to the sale of personal information</li>
-                            <li>Right to access your personal information</li>
-                            <li>Right to equal service and price</li>
                         </ul>
                     </section>
                 </div>

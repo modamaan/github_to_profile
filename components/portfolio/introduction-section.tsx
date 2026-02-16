@@ -6,7 +6,6 @@ import type { NormalizedProfile } from '@/types/github';
 import SectionBorder from './section-border';
 import { ShareButton } from './share-button';
 import { UserMenu } from '@/components/auth/user-menu';
-import { GitHubLoginButton } from '@/components/auth/github-login-button';
 import { PortfolioControls } from './portfolio-controls';
 
 interface IntroductionSectionProps {

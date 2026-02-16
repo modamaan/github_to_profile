@@ -10,7 +10,6 @@ import { FaGithub, FaMapMarkerAlt, FaBuilding, FaUsers, FaStar, FaRocket, FaPale
 import Link from "next/link"
 import { trackEvent } from "@/lib/utils/analytics"
 import { useDebounce } from "@/lib/utils/debounce"
-import { GitHubLoginButton } from "@/components/auth/github-login-button"
 import { UserMenu } from "@/components/auth/user-menu"
 import { useSession } from "@/lib/auth-client"
 import type { NormalizedProfile } from "@/types/github"
@@ -248,7 +247,6 @@ export default function LandingPage() {
           </Link>
 
           <div className="flex items-center gap-2">
-            <GitHubLoginButton />
             <UserMenu />
             <Link
               href="https://www.linkedin.com/in/mohamedamaan319/"
