@@ -27,7 +27,7 @@ export default function PrivacyPolicyPage() {
                     <section className="mb-8">
                         <h2 className="text-2xl font-semibold mb-4">1. Introduction</h2>
                         <p className="mb-4">
-                            Welcome to DevTree ("we," "our," or "us"). We are committed to protecting your privacy and ensuring you have a positive experience on our website. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
+                            Welcome to DevTree (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). We are committed to protecting your privacy and ensuring you have a positive experience on our website. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
                         </p>
                         <p className="mb-4">
                             By using DevTree, you agree to the collection and use of information in accordance with this policy.
@@ -77,15 +77,15 @@ export default function PrivacyPolicyPage() {
 
                         <h3 className="text-xl font-semibold mb-3">4.1 GitHub API</h3>
                         <p className="mb-4">
-                            We use the GitHub API to fetch public profile information and repository data. Please review GitHub's Privacy Policy for information on how they handle your data.
+                            We use the GitHub API to fetch public profile information and repository data. Please review GitHub&apos;s Privacy Policy for information on how they handle your data.
                         </p>
 
                         <h3 className="text-xl font-semibold mb-3">4.2 Google AdSense</h3>
                         <p className="mb-4">
-                            We use Google AdSense to display advertisements on our website. Google uses cookies to serve ads based on your prior visits to our website or other websites. You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google's Ads Settings</a>.
+                            We use Google AdSense to display advertisements on our website. Google uses cookies to serve ads based on your prior visits to our website or other websites. You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google&apos;s Ads Settings</a>.
                         </p>
                         <p className="mb-4">
-                            Google's use of advertising cookies enables it and its partners to serve ads based on your visit to our site and/or other sites on the Internet. For more information, visit <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google's Advertising & Privacy page</a>.
+                            Google&apos;s use of advertising cookies enables it and its partners to serve ads based on your visit to our site and/or other sites on the Internet. For more information, visit <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google&apos;s Advertising & Privacy page</a>.
                         </p>
 
                         <h3 className="text-xl font-semibold mb-3">4.3 Analytics Services</h3>

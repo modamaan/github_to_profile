@@ -41,7 +41,7 @@ export function ProductsSection({ products, showSalesCount = false }: ProductsSe
                             Products & Templates
                         </h2>
                         <p className="text-sm text-zinc-400 mt-1">
-                            Premium tools and resources I've created
+                            Premium tools and resources I&apos;ve created
                         </p>
                     </div>
                 </div>

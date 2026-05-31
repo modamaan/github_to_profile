@@ -46,7 +46,8 @@ export function PortfolioControls() {
   const currentLayout = (searchParams.get("layout") || "classic") as LayoutType
 
   useEffect(() => {
-    setMounted(true)
+    const timer = setTimeout(() => setMounted(true), 0)
+    return () => clearTimeout(timer)
   }, [])
 
   const selectedTheme = useMemo<ThemeFamily>(() => {

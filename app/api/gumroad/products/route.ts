@@ -79,7 +79,7 @@ export async function PATCH(request: NextRequest) {
         }
 
         // Update product
-        const updateData: any = {
+        const updateData: { updatedAt: Date; isVisible?: boolean; displayOrder?: number } = {
             updatedAt: new Date(),
         };
 

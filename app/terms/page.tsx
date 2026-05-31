@@ -27,7 +27,7 @@ export default function TermsOfServicePage() {
                     <section className="mb-8">
                         <h2 className="text-2xl font-semibold mb-4">1. Agreement to Terms</h2>
                         <p className="mb-4">
-                            By accessing or using DevTree ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, you may not access the Service.
+                            By accessing or using DevTree (&quot;Service&quot;), you agree to be bound by these Terms of Service (&quot;Terms&quot;). If you disagree with any part of these terms, you may not access the Service.
                         </p>
                     </section>
 
@@ -60,7 +60,7 @@ export default function TermsOfServicePage() {
                     <section className="mb-8">
                         <h2 className="text-2xl font-semibold mb-4">5. Disclaimer of Warranties</h2>
                         <p className="mb-4">
-                            THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+                            THE SERVICE IS PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED.
                         </p>
                     </section>
 

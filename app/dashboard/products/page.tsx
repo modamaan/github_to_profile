@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { FaGithub, FaStore, FaSync, FaEye, FaEyeSlash, FaTrash } from "react-icons/fa";
+import { FaStore, FaSync, FaEye, FaEyeSlash, FaTrash } from "react-icons/fa";
 import Image from "next/image";
 
 interface Product {
@@ -84,7 +84,7 @@ export default function ProductsPage() {
             } else {
                 setError(data.error || "Failed to connect Gumroad account");
             }
-        } catch (err) {
+        } catch {
             setError("An error occurred while connecting");
         } finally {
             setIsConnecting(false);
@@ -109,7 +109,7 @@ export default function ProductsPage() {
             } else {
                 setError(data.error || "Failed to sync products");
             }
-        } catch (err) {
+        } catch {
             setError("An error occurred while syncing");
         } finally {
             setIsSyncing(false);
@@ -150,7 +150,7 @@ export default function ProductsPage() {
                 setProducts([]);
                 setSuccess("Gumroad account disconnected successfully");
             }
-        } catch (err) {
+        } catch {
             setError("Failed to disconnect Gumroad account");
         }
     };

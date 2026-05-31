@@ -22,6 +22,8 @@ export default function LandingPage() {
   const [isFetchingPreview, setIsFetchingPreview] = useState(false)
   const [starCount, setStarCount] = useState(0)
   const [displayedStars, setDisplayedStars] = useState(0)
+  const [analytics, setAnalytics] = useState({ visitors: 0, pageViews: 0 })
+  const [displayedAnalytics, setDisplayedAnalytics] = useState({ visitors: 0, pageViews: 0 })
   const router = useRouter()
   const pathname = usePathname()
   const { data: session, isPending: isSessionPending } = useSession()
@@ -39,7 +41,23 @@ export default function LandingPage() {
       }
     }
 
+    const fetchAnalytics = async () => {
+      try {
+        const response = await fetch('/api/analytics')
+        if (response.ok) {
+          const data = await response.json()
+          setAnalytics({
+            visitors: data.visitors || 0,
+            pageViews: data.pageViews || 0
+          })
+        }
+      } catch {
+        // Fallback or leave as 0
+      }
+    }
+
     fetchStarCount()
+    fetchAnalytics()
   }, [])
 
   useEffect(() => {
@@ -93,6 +111,36 @@ export default function LandingPage() {
 
     return () => clearInterval(timer)
   }, [starCount])
+
+  useEffect(() => {
+    if (analytics.visitors === 0 && analytics.pageViews === 0) return
+
+    const duration = 500
+    const steps = 40
+
+    const vIncrement = analytics.visitors / steps
+    const pIncrement = analytics.pageViews / steps
+    const stepDuration = duration / steps
+    let currentStep = 0
+
+    const timer = setInterval(() => {
+      currentStep++
+      const nextVisitors = Math.min(Math.floor(vIncrement * currentStep), analytics.visitors)
+      const nextPageViews = Math.min(Math.floor(pIncrement * currentStep), analytics.pageViews)
+
+      setDisplayedAnalytics({
+        visitors: nextVisitors,
+        pageViews: nextPageViews
+      })
+
+      if (currentStep >= steps) {
+        setDisplayedAnalytics(analytics)
+        clearInterval(timer)
+      }
+    }, stepDuration)
+
+    return () => clearInterval(timer)
+  }, [analytics])
 
   const debouncedUsername = useDebounce(username.trim(), 500)
   const abortControllerRef = useRef<AbortController | null>(null)
@@ -426,7 +474,7 @@ export default function LandingPage() {
                         avatar: "https://avatars.githubusercontent.com/u/121436543?v=4",
                         gradient: "from-purple-500 to-pink-500"
                       }
-                    ].map((example, index) => (
+                    ].map((example) => (
                       <button
                         key={example.username}
                         onClick={() => router.push(`/${example.username}`)}
@@ -556,21 +604,21 @@ export default function LandingPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
                 <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-2">
-                  {displayedStars > 0 ? displayedStars.toLocaleString() : "1000+"}
+                  {displayedAnalytics.visitors > 0 ? displayedAnalytics.visitors.toLocaleString() + "+" : "1000+"}
                 </div>
-                <div className="text-white/70">GitHub Stars</div>
+                <div className="text-white/70">Views</div>
               </div>
               <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
                 <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-2">
-                  10k+
+                  {displayedAnalytics.pageViews > 0 ? displayedAnalytics.pageViews.toLocaleString() + "+" : "10k+"}
                 </div>
                 <div className="text-white/70">Portfolios Created</div>
               </div>
               <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
                 <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-2">
-                  98%
+                  {displayedStars > 0 ? displayedStars.toLocaleString() : "1000+"}
                 </div>
-                <div className="text-white/70">Satisfaction Rate</div>
+                <div className="text-white/70">GitHub Stars</div>
               </div>
             </div>
           </div>

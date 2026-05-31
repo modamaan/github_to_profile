@@ -26,9 +26,9 @@ export class LinkedInProfileFetcher {
         profile_url: `https://www.linkedin.com/in/${username}`,
         avatar_url: this.extractAvatarUrl(html),
         summary: this.extractSummary(html),
-        experience: this.extractExperience(html),
-        education: this.extractEducation(html),
-        skills: this.extractSkills(html),
+        experience: this.extractExperience(),
+        education: this.extractEducation(),
+        skills: this.extractSkills(),
       };
 
       return profile;
@@ -67,7 +67,7 @@ export class LinkedInProfileFetcher {
     return summaryMatch ? summaryMatch[1] : null;
   }
 
-  private extractExperience(_html: string): Array<{
+  private extractExperience(): Array<{
     title: string;
     company: string;
     duration: string;
@@ -76,7 +76,7 @@ export class LinkedInProfileFetcher {
     return [];
   }
 
-  private extractEducation(_html: string): Array<{
+  private extractEducation(): Array<{
     school: string;
     degree: string;
     field: string;
@@ -85,7 +85,7 @@ export class LinkedInProfileFetcher {
     return [];
   }
 
-  private extractSkills(_html: string): string[] {
+  private extractSkills(): string[] {
     return [];
   }
 }
